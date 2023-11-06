@@ -1,0 +1,81 @@
+def add(num1, num2):
+    return num1 + num2
+
+def subtract(num1, num2):
+    return num1 - num2
+
+def multiply(num1, num2):
+    return num1 * num2
+
+def divide(num1, num2):
+    if num2 != 0:
+        return num1 / num2
+    else:
+        return "División por cero, no se puede hacer"
+
+def power(num1, num2):
+    return num1 ** num2
+
+def modulo(num1, num2):
+    if num2 != 0:
+        return num1 % num2
+    else:
+        return "Módulo por cero, no se puede hacer"
+
+def game():
+    score = 0
+
+    while True:
+        print('======== Menu ========'
+              '\n1. Add'
+              '\n2. Subtract'
+              '\n3. Multiply'
+              '\n4. Divide'
+              '\n5. Power'
+              '\n6. Modulo'
+              '\n0. Exit')
+
+        option = int(input('\nChoose an option: '))
+
+        if option == 0:
+            break
+
+        num1 = float(input('Enter first number: '))
+        num2 = float(input('Enter second number: '))
+        answer = float(input('Enter your answer: '))
+
+        result = None
+
+        if option == 1:
+            result = add(num1, num2)
+        elif option == 2:
+            result = subtract(num1, num2)
+        elif option == 3:
+            result = multiply(num1, num2)
+        elif option == 4:
+            result = divide(num1, num2)
+        elif option == 5:
+            result = power(num1, num2)
+        elif option == 6:
+            result = modulo(num1, num2)
+
+        if result == answer:
+            if option in [1, 2]:
+                score += 1
+            elif option in [3, 4]:
+                score += 2
+            elif option in [5, 6]:
+                score += 4
+            print('Correct!!')
+        else:
+            print('Incorrect')
+
+    print(f'======== Game Over ========'
+          f'Your score is {score}'
+          '\nKeep going!')
+
+if __name__ == "__main__":
+    print("Welcome to the Arithmetic Game!")
+
+game()
+
